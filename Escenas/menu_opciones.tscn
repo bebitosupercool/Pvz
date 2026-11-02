@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://3skwms88borm"]
+
+[ext_resource type="Texture2D" uid="uid://bix4pmbvyi7lx" path="res://assets/Menu_de_opciones.png" id="1_6ihi5"]
+[ext_resource type="Script" uid="uid://c2iu1w1ma0j1l" path="res://Framework/MenuScripts/menu_opciones.gd" id="1_dlh0d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syd2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tuor1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehljb"]
+
+[node name="MenuOpciones" type="Control" unique_id=649322461]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dlh0d")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1999912569]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6ihi5")
+expand_mode = 1
+
+[node name="volver" type="Button" parent="." unique_id=2015798645]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 348.0
+offset_right = 712.0
+offset_bottom = 454.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_syd2l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tuor1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ehljb")
+
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

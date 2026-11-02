@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bjvrpjq3g43f7"]
+
+[ext_resource type="Script" uid="uid://b8cgkmnctt3m2" path="res://Framework/MenuScripts/escenas.gd" id="1_no3o5"]
+[ext_resource type="Texture2D" uid="uid://crevlffkc2k2x" path="res://assets/menu.png" id="2_70aba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1il4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_no3o5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70aba"]
+bg_color = Color(1, 1, 1, 0.09019608)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l11pj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h82as"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no3o5"]
+bg_color = Color(1, 1, 1, 0.09019608)
+
+[node name="menu" type="Control" unique_id=1137660444]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_no3o5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1382622047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_70aba")
+expand_mode = 1
+
+[node name="options" type="Button" parent="." unique_id=885278604]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 15.0
+offset_right = 119.0
+offset_bottom = 126.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p1il4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_no3o5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_70aba")
+
+[node name="play" type="Button" parent="." unique_id=689063099]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 357.0
+offset_right = 1025.0
+offset_bottom = 528.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l11pj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h82as")
+theme_override_styles/hover = SubResource("StyleBoxFlat_no3o5")
+
+[connection signal="pressed" from="options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
