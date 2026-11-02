@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://crig6t5q0rx3i"]
+
+[ext_resource type="Script" uid="uid://xnfqii4xcba7" path="res://Framework/Clases/PlantaDef.gd" id="1_ts4ja"]
+
+[node name="PlantaDef" type="Node2D" unique_id=108563195]
+script = ExtResource("1_ts4ja")

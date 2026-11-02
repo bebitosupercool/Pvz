@@ -8,6 +8,7 @@ extends PlantaBase
 @onready var timer = $Timer
 
 func _ready():
+	init_plant()
 	timer.wait_time = Tiempogen
 	timer.timeout.conect(generar)
 func generar():

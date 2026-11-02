@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://co5qcl8om5cvy"]
+
+[ext_resource type="Script" uid="uid://cqm81r77exl2t" path="res://Framework/PlantaAtk.gd" id="1_chfa8"]
+
+[node name="PlantaAtk" type="Node2D" unique_id=196422332]
+script = ExtResource("1_chfa8")
+
+[node name="Timer" type="Timer" parent="." unique_id=900734317]

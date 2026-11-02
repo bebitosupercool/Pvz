@@ -2,7 +2,10 @@ class_name PlantaBase
 extends Node2D
 
 #Caracteristicas
-var vida := 300.0
-var vidamax := 300.0
+var vida :float = 300.0
+@export var vidamax : float = 300.0
 
-var celdaocup: Vector2
+@export var celdaocup: Vector2
+
+func init_plant():
+	vida = vidamax
