@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cq3kbss644x44"]
+
+[ext_resource type="Texture2D" uid="uid://cclmwdg5vy3wx" path="res://assets/tablero.jpeg" id="1_8x54l"]
+
+[node name="Mundo" type="Node2D" unique_id=904606555]
+
+[node name="Tablero" type="Sprite2D" parent="." unique_id=1033474167]
+position = Vector2(655, 376)
+texture = ExtResource("1_8x54l")
