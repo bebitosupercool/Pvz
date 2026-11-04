@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://gte6rma28gip"]
+
+[ext_resource type="Texture2D" uid="uid://c0ceb3ly0flgu" path="res://assets/coin.png" id="1_bqapn"]
+[ext_resource type="Script" uid="uid://ojkv1aahcsf0" path="res://Framework/UI/hud.gd" id="1_gbpyh"]
+[ext_resource type="PackedScene" uid="uid://qdt8yhkomq50" path="res://Framework/UI/panel_planta.tscn" id="3_jh4m7"]
+[ext_resource type="Texture2D" uid="uid://cs3x7qmyetlwe" path="res://assets/Icono_lanzaciruela.png" id="4_65pql"]
+[ext_resource type="PackedScene" uid="uid://bnhu0u653rcej" path="res://Framework/objetos/Plantas/lanza_ciruelas.tscn" id="5_1m6np"]
+[ext_resource type="Texture2D" uid="uid://ctkdut5y0q5gu" path="res://assets/icono_flor_de_pitaya.png" id="6_1m6np"]
+[ext_resource type="PackedScene" uid="uid://bw1wq0vngg5m7" path="res://Framework/objetos/Plantas/girasol.tscn" id="7_vuqag"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4inuc"]
+bg_color = Color(0, 0, 0, 0.2901961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrivr"]
+atlas = ExtResource("1_bqapn")
+region = Rect2(18.181824, 21.48761, 183.42172, 193.48775)
+
+[node name="HUD" type="Control" unique_id=2041819364]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gbpyh")
+
+[node name="PanelSoles" type="Panel" parent="." unique_id=986059238]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 139.0
+offset_bottom = 85.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4inuc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelSoles" unique_id=1906709862]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelSoles/HBoxContainer" unique_id=1640405073]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_xrivr")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelSoles/HBoxContainer" unique_id=531703031]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_right = 3
+
+[node name="Label" type="Label" parent="PanelSoles/HBoxContainer/MarginContainer" unique_id=1991964060]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=577123628]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -204.0
+offset_right = 89.0
+offset_bottom = 94.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1877802013]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PanelPlanta" parent="Panel/VBoxContainer" unique_id=537518586 instance=ExtResource("3_jh4m7")]
+layout_mode = 2
+textura = ExtResource("4_65pql")
+planta_a_colocar = ExtResource("5_1m6np")
+
+[node name="PanelPlanta2" parent="Panel/VBoxContainer" unique_id=732527533 instance=ExtResource("3_jh4m7")]
+layout_mode = 2
+textura = ExtResource("6_1m6np")
+planta_a_colocar = ExtResource("7_vuqag")

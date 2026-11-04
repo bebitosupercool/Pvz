@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bw1wq0vngg5m7"]
+
+[ext_resource type="PackedScene" uid="uid://ckvlq7utn6x4v" path="res://Framework/Clases/PlantaGen.tscn" id="1_8joie"]
+
+[node name="Girasol" unique_id=556105382 instance=ExtResource("1_8joie")]

@@ -1,11 +1,39 @@
 [gd_scene format=3 uid="uid://cvrrk6synd54g"]
 
 [ext_resource type="Texture2D" uid="uid://cclmwdg5vy3wx" path="res://assets/tablero.jpeg" id="1_0iq5i"]
+[ext_resource type="Script" uid="uid://babbx5rqckvmq" path="res://Escenas/niv_1.gd" id="1_t1hom"]
+[ext_resource type="PackedScene" uid="uid://ckvlq7utn6x4v" path="res://Framework/Clases/PlantaGen.tscn" id="2_i7sny"]
+[ext_resource type="PackedScene" uid="uid://co5qcl8om5cvy" path="res://Framework/Clases/PlantaAtk.tscn" id="3_65ku8"]
+[ext_resource type="AudioStream" uid="uid://cai725r0y1tnr" path="res://assets/musica/MusicaNiv1.mp3" id="4_7fg2i"]
+[ext_resource type="PackedScene" uid="uid://gte6rma28gip" path="res://Framework/UI/hud.tscn" id="5_of4jn"]
+[ext_resource type="PackedScene" uid="uid://diitls2xwfqnx" path="res://Framework/Clases/cursor_planta.tscn" id="7_n5e8x"]
 
 [node name="Niv1" type="Node2D" unique_id=1416248889]
+script = ExtResource("1_t1hom")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1904071341]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_0iq5i")
 expand_mode = 1
+
+[node name="PlantaGen" parent="." unique_id=556105382 instance=ExtResource("2_i7sny")]
+position = Vector2(322, 118)
+scale = Vector2(0.1, 0.1)
+Cantidadpitaya = 25.0
+Tiempogen = 3.0
+
+[node name="PlantaAtk" parent="." unique_id=196422332 instance=ExtResource("3_65ku8")]
+position = Vector2(347, 244)
+scale = Vector2(0.16, 0.16)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=661418344]
+stream = ExtResource("4_7fg2i")
+volume_db = -10.08
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1494823517]
+
+[node name="HUD" parent="CanvasLayer" unique_id=2041819364 instance=ExtResource("5_of4jn")]
+
+[node name="CursorPlanta" parent="." unique_id=474107917 instance=ExtResource("7_n5e8x")]

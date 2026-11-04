@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b6oa7qx627mob"]
+
+[ext_resource type="Script" uid="uid://3xkbdqdht1k4" path="res://Framework/Clases/celda_planta.gd" id="1_fp8yu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(79, 91)
+
+[node name="CeldaPlanta" type="Area2D" unique_id=1301871985]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_fp8yu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495676505]
+shape = SubResource("RectangleShape2D_xrivr")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

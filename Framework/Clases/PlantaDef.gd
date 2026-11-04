@@ -4,6 +4,6 @@ extends PlantaBase
 @export var vidaex : float = 100
 
 func _ready():
-	init_plant()
+	ini_plant()
 	vidamax += vidaex
 	vida += vidaex

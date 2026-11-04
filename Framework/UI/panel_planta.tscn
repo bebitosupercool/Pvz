@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://qdt8yhkomq50"]
+
+[ext_resource type="Texture2D" uid="uid://cs3x7qmyetlwe" path="res://assets/Icono_lanzaciruela.png" id="1_efuta"]
+[ext_resource type="Script" uid="uid://bx1s5m62v5rbg" path="res://Framework/UI/panel_planta.gd" id="1_ncbjr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrivr"]
+bg_color = Color(0.6392157, 0.6392157, 0.6392157, 0.14509805)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13qdw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1lj4"]
+bg_color = Color(0.9019608, 0.7411765, 0.6039216, 0.20392157)
+
+[node name="PanelPlanta" type="Panel" unique_id=537518586]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 66.0
+offset_bottom = 66.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xrivr")
+script = ExtResource("1_ncbjr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=236861854]
+propagate_maximum_size = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_efuta")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1837599219]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = -26.0
+offset_right = -8.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 9
+text = "99"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1351933899]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -27.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_13qdw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b1lj4")
+value = 50.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=462580740]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

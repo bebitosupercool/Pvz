@@ -1,9 +1,162 @@
 [gd_scene format=3 uid="uid://ckvlq7utn6x4v"]
 
-[ext_resource type="Script" uid="uid://bed5ljh6a6q1v" path="res://Framework/PlantaGen.gd" id="1_ql55e"]
+[ext_resource type="Script" uid="uid://bed5ljh6a6q1v" path="res://Framework/Clases/PlantaGen.gd" id="1_ql55e"]
+[ext_resource type="PackedScene" uid="uid://c0f2a6t3edblf" path="res://Framework/objetos/Sol.tscn" id="2_ppv4f"]
+[ext_resource type="Texture2D" uid="uid://bwbdd1uwmljnk" path="res://assets/girasol_idle-Sheet.png" id="2_wp3vg"]
+[ext_resource type="Texture2D" uid="uid://btuvv6xd8swme" path="res://assets/solsac-Sheet.png" id="4_fwgx0"]
 
-[node name="PlantaGen" type="Node2D" unique_id=556105382]
+[sub_resource type="Animation" id="Animation_wp3vg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wp3vg")]
+}
+
+[sub_resource type="Animation" id="Animation_w1khq"]
+resource_name = "gensol"
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_fwgx0")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_ppv4f"]
+resource_name = "idle"
+length = 2.1
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wp3vg")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwgx0"]
+_data = {
+&"RESET": SubResource("Animation_wp3vg"),
+&"gensol": SubResource("Animation_w1khq"),
+&"idle": SubResource("Animation_ppv4f")
+}
+
+[node name="PlantaGen" type="Node2D" unique_id=556105382 node_paths=PackedStringArray("animacion")]
 script = ExtResource("1_ql55e")
+escena_sol = ExtResource("2_ppv4f")
+animacion = NodePath("AnimationPlayer")
 
 [node name="Timer" type="Timer" parent="." unique_id=1743220984]
-one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1841741106]
+position = Vector2(232, 232)
+texture = ExtResource("2_wp3vg")
+hframes = 21
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1006817821]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_fwgx0")
