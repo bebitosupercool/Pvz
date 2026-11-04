@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://cvrrk6synd54g"]
 
+[ext_resource type="Texture2D" uid="uid://cclmwdg5vy3wx" path="res://assets/tablero.jpeg" id="1_0iq5i"]
+
 [node name="Niv1" type="Node2D" unique_id=1416248889]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1904071341]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_0iq5i")
+expand_mode = 1
