@@ -7,5 +7,11 @@ var vida :float = 300.0
 
 @export var celdaocup: Vector2
 
-func init_plant():
+@export var animacion : AnimationPlayer
+
+func ini_plant():
 	vida = vidamax
+
+	if animacion != null:
+		if animacion.has_animation("idle"):
+			animacion.play("idle")

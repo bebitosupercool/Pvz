@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b2ca7aixdgdh0"]
+
+[ext_resource type="Texture2D" uid="uid://ckwxkf7jkfa25" path="res://assets/balazo-Sheet.png" id="1_gcyi7"]
+[ext_resource type="Script" uid="uid://bvb3s4j25fnvv" path="res://animated_sprite_2d.gd" id="2_5ktj7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gywx2"]
+atlas = ExtResource("1_gcyi7")
+region = Rect2(0, 0, 303, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4igh"]
+atlas = ExtResource("1_gcyi7")
+region = Rect2(303, 0, 303, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4dyv"]
+atlas = ExtResource("1_gcyi7")
+region = Rect2(606, 0, 303, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q88s"]
+atlas = ExtResource("1_gcyi7")
+region = Rect2(909, 0, 303, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gywx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4igh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4dyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q88s")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="bala_impacto" type="AnimatedSprite2D" unique_id=1714034457]
+sprite_frames = SubResource("SpriteFrames_xrivr")
+frame = 4
+frame_progress = 1.0
+script = ExtResource("2_5ktj7")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
