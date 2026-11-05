@@ -10,5 +10,5 @@ func _on_mouse_exited() -> void:
 	pass # Replace with function body.
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if input.is_action_just_pressed("click_izquierdo"):
+	if Input.is_action_just_pressed("click_izquierdo"):
 		GameManager.intentar_colocar_planta()

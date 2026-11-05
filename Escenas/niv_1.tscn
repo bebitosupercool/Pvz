@@ -37,6 +37,7 @@ autoplay = true
 [node name="HUD" parent="CanvasLayer" unique_id=2041819364 instance=ExtResource("5_of4jn")]
 
 [node name="CursorPlanta" parent="." unique_id=474107917 instance=ExtResource("7_n5e8x")]
+z_index = 10
 
 [node name="Celdas" type="Node2D" parent="." unique_id=330350286]
 

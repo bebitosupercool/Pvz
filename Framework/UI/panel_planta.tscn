@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cs3x7qmyetlwe" path="res://assets/Icono_lanzaciruela.png" id="1_efuta"]
 [ext_resource type="Script" uid="uid://bx1s5m62v5rbg" path="res://Framework/UI/panel_planta.gd" id="1_ncbjr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrivr"]
-bg_color = Color(0.6392157, 0.6392157, 0.6392157, 0.14509805)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1hom"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13qdw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,7 +15,7 @@ bg_color = Color(0.9019608, 0.7411765, 0.6039216, 0.20392157)
 custom_minimum_size = Vector2(66, 66)
 offset_right = 66.0
 offset_bottom = 66.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_xrivr")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t1hom")
 script = ExtResource("1_ncbjr")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=236861854]

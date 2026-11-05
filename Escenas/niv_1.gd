@@ -27,4 +27,4 @@ func crear_celdas():
 			var nueva_celda = celda_paquete.instantiate()
 			celdas.add_child(nueva_celda)
 			nueva_celda.position = ORIGEN_TABLERO + Vector2(x, y) * TAMANO_CELDA
-		
+			nueva_celda.posicion_celda = Vector2i(x, y) 

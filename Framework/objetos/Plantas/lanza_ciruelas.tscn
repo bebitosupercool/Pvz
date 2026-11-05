@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://co5qcl8om5cvy" path="res://Framework/Clases/PlantaAtk.tscn" id="1_cfw2s"]
 
 [node name="LanzaCiruelas" unique_id=196422332 instance=ExtResource("1_cfw2s")]
+scale = Vector2(0.16, 0.16)

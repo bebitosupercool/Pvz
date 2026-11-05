@@ -3,3 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvlq7utn6x4v" path="res://Framework/Clases/PlantaGen.tscn" id="1_8joie"]
 
 [node name="Girasol" unique_id=556105382 instance=ExtResource("1_8joie")]
+scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" parent="." index="1" unique_id=1841741106]
+position = Vector2(0, 0)

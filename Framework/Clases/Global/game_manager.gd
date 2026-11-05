@@ -36,13 +36,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if mostrar_cursor_planta and event.is_action_pressed("click_derecho"):
 		cancelar_seleccion()
 
-func actualizar_celda_actual(pos : Vector2i, celda = CeldaPlanta):
-	cursor_planta.establecer_celda_valida(plantas_colocadas.has(pos))
+func actualizar_celda_actual(pos : Vector2i, celda : CeldaPlanta):
+	cursor_planta.establecer_celda_valida(not plantas_colocadas.has(pos))
 	posicion_actual = pos
 	celda_actual = celda
 
 func intentar_colocar_planta():
-	if panel_planta_actual:
+	if panel_planta_actual and not plantas_colocadas.has(posicion_actual):
 		#Crear instancia de la planta a colocar 
 		var nueva_planta = panel_planta_actual.planta_a_colocar.instantiate()
 		#Agregar mi planta al nodo del mundo 
