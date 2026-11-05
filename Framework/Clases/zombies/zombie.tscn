@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b1o8o2cq0dote"]
+
+[ext_resource type="Texture2D" uid="uid://dbeq27li1nahn" path="res://assets/sprites_prueba_zombichino.png" id="1_b3c7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7kpv"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(80, 0, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_280gf"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(291, 0, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpijk"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(502, 0, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f502j"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(924, 0, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pn52"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(80, 270, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8q81"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(502, 270, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg4fn"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(713, 270, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgh4w"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(80, 540, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nr65"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(291, 540, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdptn"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(502, 540, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2gsx"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(924, 540, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2fgr"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(502, 810, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwlpv"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(713, 810, 211, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxgpo"]
+atlas = ExtResource("1_b3c7b")
+region = Rect2(924, 810, 211, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmpe5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7kpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_280gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpijk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f502j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pn52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8q81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg4fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgh4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nr65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdptn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2gsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2fgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwlpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxgpo")
+}],
+"loop": 1,
+"name": &"caminar",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fgps"]
+
+[node name="zombie" type="CharacterBody2D" unique_id=499317408]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=144994883]
+position = Vector2(-5.9999995, 1)
+scale = Vector2(0.7227488, 0.67777777)
+sprite_frames = SubResource("SpriteFrames_qmpe5")
+animation = &"caminar"
+frame_progress = 0.7772749
+speed_scale = 0.35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1841135984]
+shape = SubResource("RectangleShape2D_8fgps")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1871540182]
