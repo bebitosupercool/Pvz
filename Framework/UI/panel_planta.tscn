@@ -13,7 +13,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.9019608, 0.7411765, 0.6039216, 0.20392157)
 
 [node name="PanelPlanta" type="Panel" unique_id=537518586]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(66, 66)
 offset_right = 66.0
 offset_bottom = 66.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xrivr")
