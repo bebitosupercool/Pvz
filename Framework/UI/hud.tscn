@@ -16,9 +16,10 @@ atlas = ExtResource("1_bqapn")
 region = Rect2(18.181824, 21.48761, 183.42172, 193.48775)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu2rp"]
-bg_color = Color(0.52122545, 0.11470365, 0.09773222, 1)
+bg_color = Color(0.54250544, 0.11760724, 0.101402186, 1)
 
 [node name="HUD" type="Control" unique_id=2041819364]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,17 +99,25 @@ layout_mode = 2
 textura = ExtResource("6_1m6np")
 planta_a_colocar = ExtResource("7_vuqag")
 
-[node name="Button" type="Button" parent="." unique_id=1492262942]
+[node name="B_Cancel" type="Button" parent="." unique_id=1492262942]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = -221.0
-offset_right = 70.0
-offset_bottom = -170.0
+offset_left = 40.0
+offset_top = -279.0
+offset_right = 60.0
+offset_bottom = -256.0
 grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_wu2rp")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_wu2rp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu2rp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_wu2rp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu2rp")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_wu2rp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_wu2rp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_wu2rp")
 theme_override_styles/focus = SubResource("StyleBoxFlat_wu2rp")
 text = "X"
+
+[connection signal="button_down" from="B_Cancel" to="." method="_on_b_cancel_button_down"]

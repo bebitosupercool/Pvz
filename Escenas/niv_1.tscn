@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://gte6rma28gip" path="res://Framework/UI/hud.tscn" id="5_of4jn"]
 [ext_resource type="PackedScene" uid="uid://diitls2xwfqnx" path="res://Framework/Clases/cursor_planta.tscn" id="7_n5e8x"]
 
-[node name="Niv1" type="Node2D" unique_id=1416248889]
+[node name="Niv1" type="Node2D" unique_id=1416248889 node_paths=PackedStringArray("nodo_lineas")]
 script = ExtResource("1_t1hom")
+enemigos_por_oleada = Array[int]([2, 4, 6, 8, 10])
+tiempo_de_oleadas = Array[float]([3.0, 10.0, 10.0, 15.0, 20.0])
+nodo_lineas = NodePath("Lineas")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1904071341]
 offset_right = 1152.0
@@ -23,6 +26,8 @@ autoplay = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1494823517]
 
 [node name="HUD" parent="CanvasLayer" unique_id=2041819364 instance=ExtResource("5_of4jn")]
+offset_top = 99.0
+offset_bottom = 99.0
 
 [node name="CursorPlanta" parent="." unique_id=474107917 instance=ExtResource("7_n5e8x")]
 z_index = 10
@@ -30,3 +35,20 @@ z_index = 10
 [node name="Celdas" type="Node2D" parent="." unique_id=330350286]
 
 [node name="Plantas" type="Node2D" parent="." unique_id=1374813597]
+
+[node name="Lineas" type="Node2D" parent="." unique_id=1792374020]
+
+[node name="Marker2D" type="Marker2D" parent="Lineas" unique_id=506333476]
+position = Vector2(1093, 176)
+
+[node name="Marker2D2" type="Marker2D" parent="Lineas" unique_id=126556155]
+position = Vector2(1093, 266)
+
+[node name="Marker2D3" type="Marker2D" parent="Lineas" unique_id=1352869312]
+position = Vector2(1093, 366)
+
+[node name="Marker2D4" type="Marker2D" parent="Lineas" unique_id=1683889725]
+position = Vector2(1093, 458)
+
+[node name="Marker2D5" type="Marker2D" parent="Lineas" unique_id=173371665]
+position = Vector2(1093, 553)

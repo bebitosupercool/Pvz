@@ -1,7 +1,8 @@
 extends Node2D
 
-var mundo_actual : World
+var mundo_actual : Mundo
 var cursor_planta : CursorPlanta
+var hud : HUD
 var celda_valida : bool = false
 var mostrar_cursor_planta : bool = false
 
@@ -13,12 +14,15 @@ var celda_actual: CeldaPlanta
 func planta_seleccionada(panel_planta : PanelPlanta):
 	if Global.soles < panel_planta.precio_soles:
 		return
+	#Actualizar la variable
 	panel_planta_actual = panel_planta
-	mostrar_cursor_planta = true                         # <-- lo que faltaba
-	cursor_planta.actualizar_visuales(panel_planta)      # solo una vez, al seleccionar
+	
+	mostrar_cursor_planta = true      
+	#Mostrar el cursor                   
+	cursor_planta.actualizar_visuales(panel_planta)
 	cursor_planta.visible = true
 	mundo_actual.mostrar_celdas(true)
-	
+	hud.activar_boton_cancelar(true)
 
 func cancelar_seleccion():
 	mostrar_cursor_planta = false
@@ -43,19 +47,36 @@ func actualizar_celda_actual(pos : Vector2i, celda : CeldaPlanta):
 
 func intentar_colocar_planta():
 	if panel_planta_actual and not plantas_colocadas.has(posicion_actual):
+		
 		#Crear instancia de la planta a colocar 
 		var nueva_planta = panel_planta_actual.planta_a_colocar.instantiate()
+		
 		#Agregar mi planta al nodo del mundo 
 		mundo_actual.plantas.add_child(nueva_planta)
+		
 		#Colocarle la posicion global
 		nueva_planta.global_position = celda_actual.global_position
+		
 		#Agregar la planta a mi diccionario
 		plantas_colocadas[posicion_actual] = nueva_planta
+		
 		#Quitarle los soles
 		Global.quitar_soles(panel_planta_actual.precio_soles)
+		
 		#restablecer las variables
 		panel_planta_actual = null
 		celda_actual = null 
 		mostrar_cursor_planta = false
 		mundo_actual.mostrar_celdas(false)
 		cursor_planta.actualizar_visuales(null)
+		hud.activar_boton_cancelar(false)
+		
+func cancelar_planta():
+	
+	#restablecer las variables
+	panel_planta_actual = null
+	celda_actual = null 
+	mostrar_cursor_planta = false
+	mundo_actual.mostrar_celdas(false)
+	cursor_planta.actualizar_visuales(null)
+	hud.activar_boton_cancelar(false)

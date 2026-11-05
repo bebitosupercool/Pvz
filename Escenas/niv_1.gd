@@ -1,5 +1,4 @@
-class_name World
-extends Node2D
+extends Mundo
 
 @onready var celdas = $Celdas
 @onready var cursor_planta = $CursorPlanta
@@ -16,6 +15,11 @@ func _ready():
 	#Crear celdas
 	crear_celdas()
 	celdas.visible = false
+	
+	
+	#Inicializar componente
+	inicializar_mundo()
+	
 	
 func mostrar_celdas(valor: bool):
 	celdas.visible = valor
