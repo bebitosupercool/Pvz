@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bjsgd0ps6q0ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xna76"]
+
+[node name="Zombie" type="CharacterBody2D" unique_id=1163944052]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1424775800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=430398771]
+shape = SubResource("RectangleShape2D_xna76")
