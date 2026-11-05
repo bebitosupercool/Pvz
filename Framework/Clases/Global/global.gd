@@ -1,7 +1,7 @@
 extends Node
 signal soles_actualizados(cantidad)
 
-var soles : int = 0
+var soles : int = 500
 
 func _ready():
 	await get_tree().create_timer(0.5).timeout

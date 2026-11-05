@@ -24,4 +24,4 @@ func establecer_celda_valida(valor : bool):
 	if valor:
 		sprite.self_modulate = Color(1.0, 1.0, 1.0, 0.8)
 	else:
-		sprite.self_modulate = Color(1.0, 0.07, 0.07, 0.8)
+		sprite.self_modulate = Color(0.82, 0.246, 0.246, 0.8)
