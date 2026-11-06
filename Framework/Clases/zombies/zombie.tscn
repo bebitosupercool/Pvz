@@ -113,7 +113,16 @@ animations = [{
 "name": &"caminar",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_280gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpijk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7kpv")
+}],
 "loop": 1,
 "name": &"comer",
 "speed": 5.0
@@ -157,11 +166,14 @@ _data = {
 &"RESET": SubResource("Animation_hwitq")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xna76"]
+size = Vector2(45, 76.5)
+
 [node name="zombie" type="CharacterBody2D" unique_id=499317408]
 script = ExtResource("1_hwitq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=144994883]
-position = Vector2(-5.9999995, 1)
+position = Vector2(-5.9999995, -55.000004)
 scale = Vector2(0.5, 0.469)
 sprite_frames = SubResource("SpriteFrames_qmpe5")
 animation = &"caminar"
@@ -172,3 +184,17 @@ shape = SubResource("RectangleShape2D_8fgps")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1871540182]
 libraries/ = SubResource("AnimationLibrary_7mwcc")
+
+[node name="Detector" type="Area2D" parent="." unique_id=1131260938]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=920056777]
+position = Vector2(2.5, -38)
+shape = SubResource("RectangleShape2D_xna76")
+debug_color = Color(0.67034185, 0.01257748, 0.23890555, 0.41960785)
+
+[node name="Atacar" type="Timer" parent="." unique_id=498459297]
+
+[connection signal="area_entered" from="Detector" to="." method="_on_detector_area_entered"]
+[connection signal="area_exited" from="Detector" to="." method="_on_detector_area_exited"]

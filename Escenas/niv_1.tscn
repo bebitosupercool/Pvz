@@ -55,4 +55,4 @@ position = Vector2(1093, 458)
 position = Vector2(1093, 553)
 
 [node name="zombie" parent="." unique_id=499317408 instance=ExtResource("6_piud5")]
-position = Vector2(1084, 122)
+position = Vector2(1062, 191)

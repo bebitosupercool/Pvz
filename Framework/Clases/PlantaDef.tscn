@@ -2,5 +2,15 @@
 
 [ext_resource type="Script" uid="uid://xnfqii4xcba7" path="res://Framework/Clases/PlantaDef.gd" id="1_ts4ja"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ts4ja"]
+
 [node name="PlantaDef" type="Node2D" unique_id=108563195]
 script = ExtResource("1_ts4ja")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=929185924]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2032063026]
+shape = SubResource("RectangleShape2D_ts4ja")
+debug_color = Color(0.20743048, 0.6929355, 0.2710584, 0.41960785)

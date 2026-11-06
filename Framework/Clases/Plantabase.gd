@@ -15,3 +15,11 @@ func ini_plant():
 	if animacion != null:
 		if animacion.has_animation("idle"):
 			animacion.play("idle")
+
+func recibir_ataque(cantidad : float):
+	vida -= cantidad
+	
+	#Si la planta se queda sin vida
+	if vida <= 0:
+		queue_free()
+		return

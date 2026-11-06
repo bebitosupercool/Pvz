@@ -144,6 +144,9 @@ _data = {
 &"idle": SubResource("Animation_ppv4f")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwgx0"]
+size = Vector2(586, 775)
+
 [node name="PlantaGen" type="Node2D" unique_id=556105382 node_paths=PackedStringArray("animacion")]
 script = ExtResource("1_ql55e")
 Tiempogen = 25.0
@@ -160,3 +163,12 @@ hframes = 21
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1006817821]
 root_node = NodePath("../Sprite2D")
 libraries/ = SubResource("AnimationLibrary_fwgx0")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=60070983]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1083657943]
+position = Vector2(242, 217.5)
+shape = SubResource("RectangleShape2D_fwgx0")
+debug_color = Color(0.20743048, 0.6929355, 0.2710584, 0.41960785)

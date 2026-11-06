@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cvrrk6synd54g"]
+
+[ext_resource type="Texture2D" uid="uid://cclmwdg5vy3wx" path="res://assets/tablero.jpeg" id="1_0iq5i"]
+[ext_resource type="Script" uid="uid://babbx5rqckvmq" path="res://Escenas/niv_1.gd" id="1_t1hom"]
+[ext_resource type="AudioStream" uid="uid://cai725r0y1tnr" path="res://assets/musica/MusicaNiv1.mp3" id="4_7fg2i"]
+[ext_resource type="PackedScene" uid="uid://gte6rma28gip" path="res://Framework/UI/hud.tscn" id="5_of4jn"]
+[ext_resource type="PackedScene" uid="uid://bjsgd0ps6q0ui" path="res://Framework/Clases/Zombies/zombie.tscn" id="6_piud5"]
+[ext_resource type="PackedScene" uid="uid://diitls2xwfqnx" path="res://Framework/Clases/cursor_planta.tscn" id="7_n5e8x"]
+
+[node name="Niv1" type="Node2D" unique_id=1416248889 node_paths=PackedStringArray("nodo_lineas")]
+script = ExtResource("1_t1hom")
+enemigos_por_oleada = Array[int]([2, 4, 6, 8, 10])
+tiempo_de_oleadas = Array[float]([3.0, 10.0, 10.0, 15.0, 20.0])
+nodo_lineas = NodePath("Lineas")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1904071341]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_0iq5i")
+expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=661418344]
+stream = ExtResource("4_7fg2i")
+volume_db = -10.08
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1494823517]
+
+[node name="HUD" parent="CanvasLayer" unique_id=2041819364 instance=ExtResource("5_of4jn")]
+offset_top = 99.0
+offset_bottom = 99.0
+
+[node name="CursorPlanta" parent="." unique_id=474107917 instance=ExtResource("7_n5e8x")]
+z_index = 10
+
+[node name="Celdas" type="Node2D" parent="." unique_id=330350286]
+
+[node name="Plantas" type="Node2D" parent="." unique_id=1374813597]
+
+[node name="Lineas" type="Node2D" parent="." unique_id=1792374020]
+
+[node name="Marker2D" type="Marker2D" parent="Lineas" unique_id=506333476]
+position = Vector2(1093, 176)
+
+[node name="Marker2D2" type="Marker2D" parent="Lineas" unique_id=126556155]
+position = Vector2(1093, 266)
+
+[node name="Marker2D3" type="Marker2D" parent="Lineas" unique_id=1352869312]
+position = Vector2(1093, 366)
+
+[node name="Marker2D4" type="Marker2D" parent="Lineas" unique_id=1683889725]
+position = Vector2(1093, 458)
+
+[node name="Marker2D5" type="Marker2D" parent="Lineas" unique_id=173371665]
+position = Vector2(1093, 553)
+
+[node name="zombie" parent="." unique_id=499317408 instance=ExtResource("6_piud5")]
+position = Vector2(1062, 191)

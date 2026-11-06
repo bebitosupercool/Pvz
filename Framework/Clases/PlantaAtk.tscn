@@ -148,6 +148,9 @@ _data = {
 &"shoot": SubResource("Animation_c5uy5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xna76"]
+size = Vector2(335, 460)
+
 [node name="PlantaAtk" type="Node2D" unique_id=196422332 node_paths=PackedStringArray("animacion")]
 script = ExtResource("1_chfa8")
 bala_instancia = ExtResource("2_sy76i")
@@ -164,5 +167,14 @@ libraries/ = SubResource("AnimationLibrary_c5uy5")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=561879623]
 position = Vector2(193, -70)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=92906767]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=972717147]
+position = Vector2(34.5, 0)
+shape = SubResource("RectangleShape2D_xna76")
+debug_color = Color(0.20743048, 0.6929355, 0.2710584, 0.41960785)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
