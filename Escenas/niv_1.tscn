@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://babbx5rqckvmq" path="res://Escenas/niv_1.gd" id="1_t1hom"]
 [ext_resource type="AudioStream" uid="uid://cai725r0y1tnr" path="res://assets/musica/MusicaNiv1.mp3" id="4_7fg2i"]
 [ext_resource type="PackedScene" uid="uid://gte6rma28gip" path="res://Framework/UI/hud.tscn" id="5_of4jn"]
+[ext_resource type="PackedScene" uid="uid://bjsgd0ps6q0ui" path="res://Framework/Clases/Zombies/zombie.tscn" id="6_piud5"]
 [ext_resource type="PackedScene" uid="uid://diitls2xwfqnx" path="res://Framework/Clases/cursor_planta.tscn" id="7_n5e8x"]
 
 [node name="Niv1" type="Node2D" unique_id=1416248889 node_paths=PackedStringArray("nodo_lineas")]
@@ -52,3 +53,6 @@ position = Vector2(1093, 458)
 
 [node name="Marker2D5" type="Marker2D" parent="Lineas" unique_id=173371665]
 position = Vector2(1093, 553)
+
+[node name="zombie" parent="." unique_id=499317408 instance=ExtResource("6_piud5")]
+position = Vector2(1084, 122)
