@@ -8,6 +8,10 @@ const TAMANO_CELDA := Vector2(82, 94.5)
 const ORIGEN_TABLERO := Vector2(347, 144)
 
 func _ready():
+	#Mecanica de reinicio
+	GameManager.reiniciar_estado()
+	Global.reiniciar()
+	# ... lo demás igual
 	#establecer las variables del game manager
 	GameManager.mundo_actual = self
 	GameManager.cursor_planta = $CursorPlanta

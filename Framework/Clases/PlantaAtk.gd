@@ -6,7 +6,6 @@ extends PlantaBase
 @export var tpd : float = 1.0
 
 #disparo
-var zombie_on_range := true
 @export var bala_instancia : PackedScene
 
 @onready var timer = $Timer
@@ -22,9 +21,16 @@ func _ready():
 	#prueba
 	timer.start()
 	
+func hay_zombie_en_fila() -> bool:
+	for z in get_tree().get_nodes_in_group("zombies"):
+		var misma_fila : bool = abs(z.global_position.y - global_position.y) < 47.0
+		var al_frente : bool = z.global_position.x > global_position.x
+		if misma_fila and al_frente:
+			return true
+	return false
+
 func disparar():
-	#checar si la planta puede disparar
-	if zombie_on_range:
+	if hay_zombie_en_fila():
 		animation_player.play("shoot")
 		
 func spawnear_bala():

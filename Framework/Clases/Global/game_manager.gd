@@ -80,3 +80,10 @@ func cancelar_planta():
 	mundo_actual.mostrar_celdas(false)
 	cursor_planta.actualizar_visuales(null)
 	hud.activar_boton_cancelar(false)
+	
+func reiniciar_estado():
+	plantas_colocadas.clear()
+	panel_planta_actual = null
+	celda_actual = null
+	mostrar_cursor_planta = false
+	posicion_actual = Vector2i.ZERO

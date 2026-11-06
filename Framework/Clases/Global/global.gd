@@ -1,7 +1,8 @@
 extends Node
 signal soles_actualizados(cantidad)
 
-var soles : int = 500
+const SOLES_INICIALES := 100
+var soles : int = SOLES_INICIALES
 
 func _ready():
 	await get_tree().create_timer(0.5).timeout
@@ -13,4 +14,8 @@ func agregar_soles(cantidad):
 
 func quitar_soles(cantidad):
 	soles -= cantidad
+	soles_actualizados.emit(soles)
+
+func reiniciar():
+	soles = SOLES_INICIALES
 	soles_actualizados.emit(soles)

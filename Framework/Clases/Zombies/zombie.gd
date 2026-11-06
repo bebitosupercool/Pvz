@@ -17,7 +17,7 @@ var planta_a_atacar : PlantaBase
 
 #Movimiento
 @export var velocidad : float = 15.0
-
+const LIMITE_IZQUIERDO := 290.0
 
 
 @onready var animacion : AnimatedSprite2D = $AnimatedSprite2D
@@ -26,6 +26,7 @@ var planta_a_atacar : PlantaBase
 
 
 func _ready():
+	add_to_group("zombies")
 	atacar_planta_timer.wait_time = tiempo_de_ataque
 	atacar_planta_timer.connect("timeout",atacar_planta)
 	
@@ -51,7 +52,8 @@ func _physics_process(_delta):
 	else:
 		velocity.x = 0
 	move_and_slide()
-
+	if global_position.x < LIMITE_IZQUIERDO:
+		GameManager.mundo_actual.perder()
 
 func _on_detector_area_entered(area):
 	estado_actual = COMER
@@ -74,10 +76,12 @@ func atacar_planta():
 		
 		
 func recibir_ataque(cantidad : float):
+	if salud_actual <= 0:        # ya estaba muerto, no contar dos veces
+		return
 	salud_actual -= cantidad
-	
-	#Checar si tiene salud
+
 	if salud_actual <= 0:
+		GameManager.mundo_actual.enemigo_abatido()   # avisar al mundo
 		queue_free()
-		return 
+		return
 	animacion_impacto.play("impacto")

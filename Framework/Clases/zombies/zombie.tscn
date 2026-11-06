@@ -235,6 +235,7 @@ _data = {
 
 [node name="zombie" type="CharacterBody2D" unique_id=499317408]
 script = ExtResource("1_hwitq")
+velocidad = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=144994883]
 position = Vector2(-5.9999995, -55.000004)

@@ -43,6 +43,7 @@ animations = [{
 }]
 
 [node name="bala_impacto" type="AnimatedSprite2D" unique_id=1714034457]
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_xrivr")
 frame = 4
 frame_progress = 1.0
