@@ -88,7 +88,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_c5uy5"]
 resource_name = "shoot"
-loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -180,7 +179,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_iwk8d"]
 resource_name = "impacto"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

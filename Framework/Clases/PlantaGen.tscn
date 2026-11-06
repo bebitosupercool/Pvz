@@ -176,7 +176,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_iwk8d"]
 resource_name = "impacto"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -210,7 +210,6 @@ _data = {
 
 [node name="PlantaGen" type="Node2D" unique_id=556105382 node_paths=PackedStringArray("animacion")]
 script = ExtResource("1_ql55e")
-Tiempogen = 25.0
 escena_sol = ExtResource("2_ppv4f")
 animacion = NodePath("AnimationPlayer")
 

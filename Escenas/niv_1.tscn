@@ -4,12 +4,20 @@
 [ext_resource type="Script" uid="uid://babbx5rqckvmq" path="res://Escenas/niv_1.gd" id="1_t1hom"]
 [ext_resource type="AudioStream" uid="uid://cai725r0y1tnr" path="res://assets/musica/MusicaNiv1.mp3" id="4_7fg2i"]
 [ext_resource type="PackedScene" uid="uid://gte6rma28gip" path="res://Framework/UI/hud.tscn" id="5_of4jn"]
+[ext_resource type="Texture2D" uid="uid://oetjj6dqksps" path="res://assets/Barra_de_progreso.webp" id="5_piud5"]
 [ext_resource type="PackedScene" uid="uid://diitls2xwfqnx" path="res://Framework/Clases/cursor_planta.tscn" id="7_n5e8x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xna76"]
+atlas = ExtResource("5_piud5")
+region = Rect2(0, 0, 158, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu2rp"]
+margin = Rect2(0, 27, 158, 24)
 
 [node name="Niv1" type="Node2D" unique_id=1416248889 node_paths=PackedStringArray("nodo_lineas")]
 script = ExtResource("1_t1hom")
-enemigos_por_oleada = Array[int]([2, 4, 6, 8, 10])
-tiempo_de_oleadas = Array[float]([3.0, 20.0, 30.0, 30.0, 40.0])
+enemigos_por_oleada = Array[int]([3, 5, 10, 12, 10])
+tiempo_de_oleadas = Array[float]([40.0, 30.0, 30.0, 35.0, 40.0])
 nodo_lineas = NodePath("Lineas")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1904071341]
@@ -28,6 +36,18 @@ autoplay = true
 [node name="HUD" parent="CanvasLayer" unique_id=2041819364 instance=ExtResource("5_of4jn")]
 offset_top = 99.0
 offset_bottom = 99.0
+
+[node name="BarraProgreso" type="TextureProgressBar" parent="CanvasLayer" unique_id=1900135882]
+offset_left = 446.0
+offset_top = 31.0
+offset_right = 604.0
+offset_bottom = 58.0
+texture_under = SubResource("AtlasTexture_xna76")
+texture_progress = SubResource("AtlasTexture_wu2rp")
+
+[node name="EtiquetaOleada" type="Label" parent="CanvasLayer" unique_id=1996624877]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="CursorPlanta" parent="." unique_id=474107917 instance=ExtResource("7_n5e8x")]
 z_index = 10
