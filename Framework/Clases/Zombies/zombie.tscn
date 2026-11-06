@@ -169,6 +169,70 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xna76"]
 size = Vector2(45, 76.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu2rp"]
+size = Vector2(43, 111)
+
+[sub_resource type="Animation" id="Animation_7mwcc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.469)]
+}
+
+[sub_resource type="Animation" id="Animation_p3ye2"]
+resource_name = "impacto"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.20000005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.8156863, 0.003921569, 0.003921569, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.563), Vector2(0.5, 0.469)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ostd7"]
+_data = {
+&"RESET": SubResource("Animation_7mwcc"),
+&"impacto": SubResource("Animation_p3ye2")
+}
+
 [node name="zombie" type="CharacterBody2D" unique_id=499317408]
 script = ExtResource("1_hwitq")
 
@@ -190,11 +254,23 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=920056777]
-position = Vector2(2.5, -38)
+position = Vector2(-7, -37)
 shape = SubResource("RectangleShape2D_xna76")
 debug_color = Color(0.67034185, 0.01257748, 0.23890555, 0.41960785)
 
 [node name="Atacar" type="Timer" parent="." unique_id=498459297]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=452917274]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=483984206]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_wu2rp")
+debug_color = Color(0.13655758, 0.50541186, 0.31284836, 0.41960785)
+
+[node name="AnimacionImpacto" type="AnimationPlayer" parent="." unique_id=664731265]
+libraries/ = SubResource("AnimationLibrary_ostd7")
 
 [connection signal="area_entered" from="Detector" to="." method="_on_detector_area_entered"]
 [connection signal="area_exited" from="Detector" to="." method="_on_detector_area_exited"]

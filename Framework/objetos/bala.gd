@@ -13,11 +13,17 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	pass
-	#if body is Zombie:
-		##Spawnear el impacto de bala
-		#var impacto = BALA_IMPACTO.instantiate()
-		#get_tree().current_scene.add_child(impacto)
-		#impacto.global_position = global_position
-		##aplicarle el daño al zombie
-		#queue_free()
+	queue_free()
+
+
+func _on_area_entered(area):
+	var target_zombie = area.get_parent()
+	if target_zombie is Zombie:
+		#Spawnear el impacto de bala
+		var impacto = BALA_IMPACTO.instantiate()
+		get_tree().current_scene.add_child(impacto)
+		impacto.global_position = global_position
+		#aplicarle el daño al zombie
+		target_zombie.recibir_ataque(25)
+		#Eliminar bala
+		queue_free()

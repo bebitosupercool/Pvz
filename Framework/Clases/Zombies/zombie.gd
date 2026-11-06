@@ -1,23 +1,37 @@
+class_name Zombie
 extends CharacterBody2D
 
+#Estados
 enum{CAMINAR, COMER, ABATIDO}
 var direccion := -1
 var estado_actual := CAMINAR
 var estado_previo
 
+#Estadisticas de salud
+@export var salud_maxima : float = 100.0
+var salud_actual : float = 100.0
+#Estadisticas de ataque
 @export var ataque : float = 20
-@export var velocidad : float = 15.0
 @export var tiempo_de_ataque: float = 1.5
+var planta_a_atacar : PlantaBase
 
-var planta_a_atacar = PlantaBase
+#Movimiento
+@export var velocidad : float = 15.0
+
+
+
 @onready var animacion : AnimatedSprite2D = $AnimatedSprite2D
-@onready var atacar_planta_timer = $AtacarPlantaTimer
+@onready var atacar_planta_timer = $Atacar
+@onready var animacion_impacto: AnimationPlayer = $AnimacionImpacto
 
 
 func _ready():
 	atacar_planta_timer.wait_time = tiempo_de_ataque
 	atacar_planta_timer.connect("timeout",atacar_planta)
-
+	
+	#Establecer salud actual
+	salud_actual = salud_maxima
+	
 
 func _physics_process(_delta):
 	#Checar si el estado a cambiado
@@ -55,9 +69,15 @@ func atacar_planta():
 	if planta_a_atacar != null:
 		planta_a_atacar.recibir_ataque(ataque)
 		atacar_planta_timer.start()
+		print("ATACANDO PLANTA")
+			
 		
 		
-		
-		
-		
-		
+func recibir_ataque(cantidad : float):
+	salud_actual -= cantidad
+	
+	#Checar si tiene salud
+	if salud_actual <= 0:
+		queue_free()
+		return 
+	animacion_impacto.play("impacto")

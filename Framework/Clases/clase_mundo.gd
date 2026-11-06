@@ -7,8 +7,7 @@ extends Node2D
 @export var enemigos_por_oleada : Array[int] = [2]
 @export var tiempo_de_oleadas : Array[float] = [3.0]
 
-var timer_oleada : Timer
-
+var timer_oleada : SceneTreeTimer
 #sistema de enemigos
 var enemigos_totales : int = 0
 var enemigos_totales_de_oleada: int = 0
@@ -18,11 +17,10 @@ var enemigos_actuales : int = 0
 
 func inicializar_mundo():
 	#Crear nuestro temporizador
-	timer_oleada = Timer.new()
+	timer_oleada = get_tree().create_timer(1)
 	timer_oleada.one_shot = true
 	timer_oleada.autostart = false
 	timer_oleada.wait_time = tiempo_de_oleadas[0]
-	
 	#Conectar el temporizador con el inicio de cada oleada
 	timer_oleada.timeout.connect(inicializar_oleada)
 	timer_oleada.start()
