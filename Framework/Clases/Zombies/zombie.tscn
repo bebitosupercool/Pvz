@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bjsgd0ps6q0ui"]
+[gd_scene format=3 uid="uid://b1o8o2cq0dote"]
 
 [ext_resource type="Texture2D" uid="uid://dbeq27li1nahn" path="res://assets/sprites_prueba_zombichino.png" id="1_b3c7b"]
-[ext_resource type="Script" uid="uid://48ck751a4pcj" path="res://Framework/Clases/Zombies/zombie.gd" id="1_hwitq"]
+[ext_resource type="Script" uid="uid://48ck751a4pcj" path="res://Framework/Clases/zombies/zombie.gd" id="1_hwitq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7kpv"]
 atlas = ExtResource("1_b3c7b")
@@ -235,7 +235,7 @@ _data = {
 
 [node name="zombie" type="CharacterBody2D" unique_id=499317408]
 script = ExtResource("1_hwitq")
-velocidad = 5.0
+velocidad = 15.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=144994883]
 position = Vector2(-5.9999995, -55.000004)

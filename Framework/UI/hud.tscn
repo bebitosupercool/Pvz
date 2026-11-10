@@ -95,6 +95,7 @@ alignment = 1
 [node name="PanelPlanta" parent="Panel/VBoxContainer" unique_id=537518586 instance=ExtResource("3_jh4m7")]
 layout_mode = 2
 textura = ExtResource("4_65pql")
+precio_soles = 100
 planta_a_colocar = ExtResource("5_1m6np")
 
 [node name="PanelPlanta2" parent="Panel/VBoxContainer" unique_id=732527533 instance=ExtResource("3_jh4m7")]
@@ -105,6 +106,7 @@ planta_a_colocar = ExtResource("7_vuqag")
 [node name="PanelPlanta3" parent="Panel/VBoxContainer" unique_id=1178950116 instance=ExtResource("3_jh4m7")]
 layout_mode = 2
 textura = ExtResource("8_vuqag")
+precio_soles = 75
 planta_a_colocar = ExtResource("9_fmxl4")
 
 [node name="B_Cancel" type="Button" parent="." unique_id=1492262942]

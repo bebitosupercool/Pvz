@@ -10,6 +10,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1lj4"]
 bg_color = Color(1, 1, 1, 0.101960786)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ncug4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwt4q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khvji"]
+bg_color = Color(0, 0, 0, 0.5176471)
+
 [node name="Tuto" type="Control" unique_id=1295748741]
 layout_mode = 3
 anchors_preset = 15
@@ -41,6 +48,19 @@ offset_left = 1067.0
 offset_top = 86.0
 offset_right = 1131.0
 offset_bottom = 123.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ncug4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mwt4q")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_khvji")
 text = "JUGAR!"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+tab_input_mode = false
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

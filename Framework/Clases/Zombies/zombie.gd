@@ -8,15 +8,15 @@ var estado_actual := CAMINAR
 var estado_previo
 
 #Estadisticas de salud
-@export var salud_maxima : float = 100.0
-var salud_actual : float = 100.0
+@export var salud_maxima : float = 200.0
+var salud_actual : float = 200.0
 #Estadisticas de ataque
 @export var ataque : float = 20
 @export var tiempo_de_ataque: float = 1.5
 var planta_a_atacar : PlantaBase
 
 #Movimiento
-@export var velocidad : float = 15.0
+@export var velocidad : float = 100.0
 const LIMITE_IZQUIERDO := 290.0
 
 

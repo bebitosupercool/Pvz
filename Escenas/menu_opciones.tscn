@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bix4pmbvyi7lx" path="res://assets/Menu_de_opciones.png" id="1_6ihi5"]
 [ext_resource type="Script" uid="uid://c2iu1w1ma0j1l" path="res://Framework/MenuScripts/menu_opciones.gd" id="1_dlh0d"]
+[ext_resource type="Script" uid="uid://c8lh2vk1as86h" path="res://Framework/MenuScripts/h_slider.gd" id="3_syd2l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syd2l"]
 
@@ -37,5 +38,13 @@ offset_bottom = 454.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_syd2l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_tuor1")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ehljb")
+
+[node name="HSlider" type="HSlider" parent="." unique_id=66931944]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 305.0
+offset_right = 672.0
+offset_bottom = 331.0
+script = ExtResource("3_syd2l")
 
 [connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

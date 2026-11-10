@@ -54,6 +54,9 @@ func intentar_colocar_planta():
 		#Crear instancia de la planta a colocar 
 		var nueva_planta = panel_planta_actual.planta_a_colocar.instantiate()
 		
+		nueva_planta.celdaocup = posicion_actual
+		nueva_planta.planta_muerta.connect(_on_planta_muerta)
+		
 		#Agregar mi planta al nodo del mundo 
 		mundo_actual.plantas.add_child(nueva_planta)
 		
@@ -91,3 +94,6 @@ func reiniciar_estado():
 	celda_actual = null
 	mostrar_cursor_planta = false
 	posicion_actual = Vector2i.ZERO
+	
+func _on_planta_muerta(celda : Vector2i):
+	plantas_colocadas.erase(celda)
