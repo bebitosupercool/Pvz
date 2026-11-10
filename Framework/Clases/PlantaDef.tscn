@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://crig6t5q0rx3i"]
 
 [ext_resource type="Script" uid="uid://xnfqii4xcba7" path="res://Framework/Clases/PlantaDef.gd" id="1_ts4ja"]
+[ext_resource type="Texture2D" uid="uid://o7fnns4wjapx" path="res://assets/biznaga_base.png" id="2_jr4fu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ts4ja"]
+size = Vector2(410, 480)
 
 [sub_resource type="Animation" id="Animation_fwrbn"]
 length = 0.001
@@ -33,7 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_iwk8d"]
 resource_name = "impacto"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,8 +67,11 @@ _data = {
 &"impacto": SubResource("Animation_iwk8d")
 }
 
-[node name="PlantaDef" type="Node2D" unique_id=108563195]
+[node name="PlantaDef" type="Node2D" unique_id=108563195 node_paths=PackedStringArray("animacion_impacto")]
+position = Vector2(1, -54)
+scale = Vector2(0.19, 0.19)
 script = ExtResource("1_ts4ja")
+animacion_impacto = NodePath("AnimacionImpacto")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=929185924]
 collision_layer = 2
@@ -78,3 +83,6 @@ debug_color = Color(0.20743048, 0.6929355, 0.2710584, 0.41960785)
 
 [node name="AnimacionImpacto" type="AnimationPlayer" parent="." unique_id=488865843]
 libraries/ = SubResource("AnimationLibrary_ts4ja")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=271397808]
+texture = ExtResource("2_jr4fu")

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnhu0u653rcej" path="res://Framework/objetos/Plantas/lanza_ciruelas.tscn" id="5_1m6np"]
 [ext_resource type="Texture2D" uid="uid://ctkdut5y0q5gu" path="res://assets/icono_flor_de_pitaya.png" id="6_1m6np"]
 [ext_resource type="PackedScene" uid="uid://bw1wq0vngg5m7" path="res://Framework/objetos/Plantas/girasol.tscn" id="7_vuqag"]
+[ext_resource type="Texture2D" uid="uid://cbmm5xpv00fdl" path="res://assets/icono_biznaga_pergamino.png" id="8_vuqag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4inuc"]
 bg_color = Color(0, 0, 0, 0.2901961)
@@ -75,7 +76,7 @@ anchor_bottom = 0.5
 offset_left = 23.0
 offset_top = -204.0
 offset_right = 89.0
-offset_bottom = -57.0
+offset_bottom = 35.0
 grow_vertical = 2
 mouse_filter = 2
 
@@ -85,6 +86,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -94,9 +96,24 @@ layout_mode = 2
 textura = ExtResource("4_65pql")
 planta_a_colocar = ExtResource("5_1m6np")
 
+[node name="Sombra" type="ColorRect" parent="Panel/VBoxContainer/PanelPlanta" unique_id=1280805565]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.4)
+
 [node name="PanelPlanta2" parent="Panel/VBoxContainer" unique_id=732527533 instance=ExtResource("3_jh4m7")]
 layout_mode = 2
 textura = ExtResource("6_1m6np")
+planta_a_colocar = ExtResource("7_vuqag")
+
+[node name="PanelPlanta3" parent="Panel/VBoxContainer" unique_id=1178950116 instance=ExtResource("3_jh4m7")]
+layout_mode = 2
+textura = ExtResource("8_vuqag")
 planta_a_colocar = ExtResource("7_vuqag")
 
 [node name="B_Cancel" type="Button" parent="." unique_id=1492262942]

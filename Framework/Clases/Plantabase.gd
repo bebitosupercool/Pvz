@@ -19,9 +19,8 @@ func ini_plant():
 
 func recibir_ataque(cantidad : float):
 	vida -= cantidad
-	
-	#Si la planta se queda sin vida
 	if vida <= 0:
 		queue_free()
 		return
-	animacion_impacto.play("impacto")
+	if animacion_impacto != null:
+		animacion_impacto.play("impacto")

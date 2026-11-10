@@ -37,7 +37,7 @@ func inicializar_mundo():
 	#Calcular enemigos totales
 	for enemigos in enemigos_por_oleada:
 		enemigos_totales += enemigos
-
+	crear_barra_progreso()   
 
 func inicializar_oleada():
 	#Checar si hay nueva oleada
@@ -71,7 +71,7 @@ func spawnear_enemigos(total : int):
 func enemigo_abatido():
 	enemigos_actuales -= 1
 	enemigos_abatidos += 1
-	# Ganas cuando mataste a TODOS los de todas las oleadas
+	actualizar_progreso()           # <-- antes del if de ganar
 	if enemigos_abatidos >= enemigos_totales:
 		ganar()
 
@@ -125,6 +125,13 @@ func reiniciar():
 	get_tree().reload_current_scene()
 
 func crear_barra_progreso():
-	barra_progreso.max_value = enemigos_totales
+	barra_progreso.max_value = 100
 	barra_progreso.value = 0
-	etiqueta_oleada.text = "Oleada 0 / %d" % cantidad_de_oleadas
+	etiqueta_oleada.text = "Progreso: 0%"
+
+func actualizar_progreso():
+	if enemigos_totales <= 0:
+		return
+	var porcentaje : float = float(enemigos_abatidos) / float(enemigos_totales) * 100.0
+	barra_progreso.value = porcentaje
+	etiqueta_oleada.text = "Progreso: %d%%" % int(porcentaje)
