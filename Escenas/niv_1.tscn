@@ -30,6 +30,7 @@ expand_mode = 1
 stream = ExtResource("4_7fg2i")
 volume_db = -10.08
 autoplay = true
+parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1494823517]
 
