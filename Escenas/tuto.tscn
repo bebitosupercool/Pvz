@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://jenmp14k3v8c"]
+
+[ext_resource type="Script" uid="uid://coo4ql8yoo0bw" path="res://Framework/MenuScripts/tuto.gd" id="1_ncug4"]
+[ext_resource type="Texture2D" uid="uid://b6o2nja8wbtdp" path="res://assets/Menu_controles.png" id="1_rhx1y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrivr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13qdw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1lj4"]
+bg_color = Color(1, 1, 1, 0.101960786)
+
+[node name="Tuto" type="Control" unique_id=1295748741]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ncug4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=297445046]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_rhx1y")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="." unique_id=1015054967]
+layout_mode = 0
+offset_left = 1052.0
+offset_right = 1152.0
+offset_bottom = 88.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xrivr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_13qdw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1lj4")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1349551312]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 86.0
+offset_right = 1131.0
+offset_bottom = 123.0
+text = "JUGAR!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

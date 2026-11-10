@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pvz"
-run/main_scene="uid://cvrrk6synd54g"
+run/main_scene="uid://bjvrpjq3g43f7"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
