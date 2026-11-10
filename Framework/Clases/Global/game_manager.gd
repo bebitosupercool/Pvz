@@ -12,6 +12,8 @@ var posicion_actual : Vector2i
 var celda_actual: CeldaPlanta
 
 func planta_seleccionada(panel_planta : PanelPlanta):
+	if panel_planta.en_recuperacion or Global.soles < panel_planta.precio_soles:
+		return
 	if Global.soles < panel_planta.precio_soles:
 		return
 	#Actualizar la variable
@@ -46,6 +48,7 @@ func actualizar_celda_actual(pos : Vector2i, celda : CeldaPlanta):
 	celda_actual = celda
 
 func intentar_colocar_planta():
+	
 	if panel_planta_actual and not plantas_colocadas.has(posicion_actual):
 		
 		#Crear instancia de la planta a colocar 
@@ -62,6 +65,7 @@ func intentar_colocar_planta():
 		
 		#Quitarle los soles
 		Global.quitar_soles(panel_planta_actual.precio_soles)
+		panel_planta_actual.iniciar_recuperacion()
 		
 		#restablecer las variables
 		panel_planta_actual = null
