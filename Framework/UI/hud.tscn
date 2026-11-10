@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctkdut5y0q5gu" path="res://assets/icono_flor_de_pitaya.png" id="6_1m6np"]
 [ext_resource type="PackedScene" uid="uid://bw1wq0vngg5m7" path="res://Framework/objetos/Plantas/girasol.tscn" id="7_vuqag"]
 [ext_resource type="Texture2D" uid="uid://cbmm5xpv00fdl" path="res://assets/icono_biznaga_pergamino.png" id="8_vuqag"]
+[ext_resource type="PackedScene" uid="uid://dqs6yss8mu1ar" path="res://Framework/objetos/Plantas/Biznaga.tscn" id="9_fmxl4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4inuc"]
 bg_color = Color(0, 0, 0, 0.2901961)
@@ -104,7 +105,7 @@ planta_a_colocar = ExtResource("7_vuqag")
 [node name="PanelPlanta3" parent="Panel/VBoxContainer" unique_id=1178950116 instance=ExtResource("3_jh4m7")]
 layout_mode = 2
 textura = ExtResource("8_vuqag")
-planta_a_colocar = ExtResource("7_vuqag")
+planta_a_colocar = ExtResource("9_fmxl4")
 
 [node name="B_Cancel" type="Button" parent="." unique_id=1492262942]
 layout_mode = 1

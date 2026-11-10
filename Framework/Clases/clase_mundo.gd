@@ -14,7 +14,7 @@ const LLUVIA_Y_MAX := 520.0
 const LLUVIA_Y_INICIO := -40.0 # un poco arriba de la pantalla
 @export var lluvia_tiempo_min := 8.0
 @export var lluvia_tiempo_max := 12.0
-@export var lluvia_valor := 25
+@export var lluvia_valor := 50
 
 var timer_lluvia : Timer
 
