@@ -9,7 +9,7 @@ extends Panel
 
 var en_recuperacion := false
 
-@onready var sombra : ColorRect = $Sombra
+var sombra : ColorRect  
 
 func _ready():
 	$TextureRect.texture = textura
@@ -17,6 +17,13 @@ func _ready():
 	$Timer.wait_time = tiempo_de_recuperacion
 	$Timer.one_shot = true
 	$Timer.timeout.connect(_al_terminar_recuperacion)
+
+	# Crear la sombra por código: así toda carta la tiene
+	sombra = ColorRect.new()
+	sombra.color = Color(0, 0, 0, 0.55)
+	sombra.mouse_filter = Control.MOUSE_FILTER_IGNORE   # que no se coma los clics
+	add_child(sombra)
+	sombra.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	sombra.visible = false
 
 	# Oscurecer la carta cuando no alcanzan los soles

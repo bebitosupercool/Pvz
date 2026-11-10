@@ -4,9 +4,9 @@ extends PlantaBase
 @export var vidaex : float = 100
 
 @export_group("Texturas por salud")
-@export var textura_base = "res://assets/biznaga_base.png"
-@export var textura_dano_medio = "res://assets/biznaga_dano_medio.png"
-@export var textura_ultima_fase = "res://assets/biznaga_ultima_fase.png"
+@export var textura_base : Texture2D = preload("res://assets/biznaga_base.png")
+@export var textura_dano_medio : Texture2D = preload("res://assets/biznaga_dano_medio.png")
+@export var textura_ultima_fase : Texture2D = preload("res://assets/biznaga_ultima_fase.png")
 
 # Desfases en píxeles de la imagen, para que la base del cactus no se mueva
 const OFFSET_BASE := Vector2(0, 0)

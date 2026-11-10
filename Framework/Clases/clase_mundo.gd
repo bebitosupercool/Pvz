@@ -4,6 +4,20 @@ extends Node2D
 const ZOMBIE_ESCENA = preload("res://Framework/Clases/Zombies/zombie.tscn")
 const RUTA_FUENTE = "res://assets/fuentes/PinyonScript-Regular.ttf"
 
+#Variuables del sistema de lluvia de pitayas
+const SOL_ESCENA = preload("res://Framework/objetos/Sol.tscn")   # verifica la ruta: clic derecho en Sol.tscn > Copiar ruta
+
+const LLUVIA_X_MIN := 330.0
+const LLUVIA_X_MAX := 1020.0
+const LLUVIA_Y_MIN := 150.0    # altura donde se queda el sol (centro visible)
+const LLUVIA_Y_MAX := 520.0
+const LLUVIA_Y_INICIO := -40.0 # un poco arriba de la pantalla
+@export var lluvia_tiempo_min := 8.0
+@export var lluvia_tiempo_max := 12.0
+@export var lluvia_valor := 25
+
+var timer_lluvia : Timer
+
 var enemigos_abatidos : int = 0
 var juego_terminado : bool = false
 #Sistema de oleadas
@@ -38,7 +52,7 @@ func inicializar_mundo():
 	for enemigos in enemigos_por_oleada:
 		enemigos_totales += enemigos
 	crear_barra_progreso()   
-
+	iniciar_lluvia_soles()
 func inicializar_oleada():
 	#Checar si hay nueva oleada
 	if oleada_actual >= cantidad_de_oleadas:
@@ -135,3 +149,30 @@ func actualizar_progreso():
 	var porcentaje : float = float(enemigos_abatidos) / float(enemigos_totales) * 100.0
 	barra_progreso.value = porcentaje
 	etiqueta_oleada.text = "Progreso: %d%%" % int(porcentaje)
+	
+func iniciar_lluvia_soles():
+	timer_lluvia = Timer.new()
+	timer_lluvia.one_shot = true              # se dispara una vez y lo reprogramamos nosotros
+	add_child(timer_lluvia)                   # un Timer.new() debe agregarse al arbol para contar
+	timer_lluvia.timeout.connect(_caer_sol)
+	timer_lluvia.start(5.0)                   # el primero llega pronto, para que no se sienta vacio
+
+func _caer_sol():
+	var sol : Sol = SOL_ESCENA.instantiate()
+	sol.cae_del_cielo = true
+	sol.cantidad_soles = lluvia_valor
+
+	# El dibujo del sol esta desplazado del origen del nodo (257,140 en la escena),
+	# asi que calculamos ese desfase para que el dibujo caiga donde queremos.
+	var desfase : Vector2 = sol.get_node("AnimatedSprite2D").position * sol.scale
+
+	var x_visible := randf_range(LLUVIA_X_MIN, LLUVIA_X_MAX)
+	var y_visible := randf_range(LLUVIA_Y_MIN, LLUVIA_Y_MAX)
+
+	sol.position = Vector2(x_visible, LLUVIA_Y_INICIO) - desfase
+	sol.destino_y = y_visible - desfase.y
+
+	add_child(sol)   # todo esta configurado ANTES, porque _ready() corre aqui
+
+	# reprogramar el siguiente con tiempo aleatorio
+	timer_lluvia.start(randf_range(lluvia_tiempo_min, lluvia_tiempo_max))
