@@ -36,4 +36,5 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click_izquierdo") and not recogido:
 		recogido = true
 		Global.agregar_soles(cantidad_soles)
+		Sonido.reproducir(Sonido.SFX_SOL, 18.0)   # +18 dB porque el archivo es muy bajito
 		queue_free()

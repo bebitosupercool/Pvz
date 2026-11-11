@@ -19,6 +19,9 @@ var planta_a_atacar : PlantaBase
 @export var velocidad : float = 100.0
 const LIMITE_IZQUIERDO := 290.0
 
+#Sonido
+const SFX_MASTICAR = preload("res://assets/sonidos/masticar.mp3")
+var sonido_masticar : AudioStreamPlayer
 
 @onready var animacion : AnimatedSprite2D = $AnimatedSprite2D
 @onready var atacar_planta_timer = $Atacar
@@ -33,17 +36,26 @@ func _ready():
 	#Establecer salud actual
 	salud_actual = salud_maxima
 	
+	#Sonido
+	sonido_masticar = AudioStreamPlayer.new()
+	sonido_masticar.stream = SFX_MASTICAR
+	sonido_masticar.volume_db = -4.0
+	add_child(sonido_masticar)
+	sonido_masticar.finished.connect(_repetir_masticar)
 
 func _physics_process(_delta):
 	#Checar si el estado a cambiado
 	if estado_actual != estado_previo:
 		match estado_actual:
-			CAMINAR:
-				animacion.play("caminar")
-			COMER:
-				animacion.play("comer")
-			ABATIDO:
-				animacion.play("abatido")
+				CAMINAR:
+					animacion.play("caminar")
+					sonido_masticar.stop()
+				COMER:
+					animacion.play("comer")
+					sonido_masticar.play()
+				ABATIDO:
+					animacion.play("abatido")
+					sonido_masticar.stop()
 		estado_previo = estado_actual
 		
 	#poner la velocidad
@@ -85,3 +97,8 @@ func recibir_ataque(cantidad : float):
 		queue_free()
 		return
 	animacion_impacto.play("impacto")
+
+func _repetir_masticar():
+	# finished se emite al llegar al final del audio. Si sigue comiendo, lo repetimos (bucle manual).
+	if estado_actual == COMER:
+		sonido_masticar.play()

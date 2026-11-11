@@ -14,8 +14,6 @@ var celda_actual: CeldaPlanta
 func planta_seleccionada(panel_planta : PanelPlanta):
 	if panel_planta.en_recuperacion or Global.soles < panel_planta.precio_soles:
 		return
-	if Global.soles < panel_planta.precio_soles:
-		return
 	#Actualizar la variable
 	panel_planta_actual = panel_planta
 	
@@ -65,6 +63,9 @@ func intentar_colocar_planta():
 		
 		#Agregar la planta a mi diccionario
 		plantas_colocadas[posicion_actual] = nueva_planta
+		
+		#Sonido al plantar
+		Sonido.reproducir(Sonido.SFX_PLANTAR, -2.0)
 		
 		#Quitarle los soles
 		Global.quitar_soles(panel_planta_actual.precio_soles)

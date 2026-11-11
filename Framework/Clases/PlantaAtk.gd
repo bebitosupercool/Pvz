@@ -37,6 +37,8 @@ func spawnear_bala():
 	var bala : Bala = bala_instancia.instantiate()
 	get_tree().current_scene.add_child(bala)
 	bala.global_position = marker_2d.global_position
+	# El archivo trae silencio al inicio y varios sonidos seguidos: tomamos solo uno.
+	Sonido.reproducir(Sonido.SFX_DISPARO, -3.0, 0.5, 0.7)
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://wanxki71b7uw"
 GameManager="*uid://cks2co3t1mhg4"
+Sonido="*uid://sxqb2gyaj2ua"
 
 [display]
 

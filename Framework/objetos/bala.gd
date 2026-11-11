@@ -23,6 +23,7 @@ func _on_area_entered(area):
 		var impacto = BALA_IMPACTO.instantiate()
 		get_tree().current_scene.add_child(impacto)
 		impacto.global_position = global_position
+		Sonido.reproducir(Sonido.SFX_IMPACTO, -2.0, 0.0, 0.3, 1.5)
 		#aplicarle el daño al zombie
 		target_zombie.recibir_ataque(25)
 		#Eliminar bala
