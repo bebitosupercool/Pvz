@@ -1,9 +1,9 @@
 extends Mundo
-
+#Variables
 @onready var celdas = $Celdas
 @onready var cursor_planta = $CursorPlanta
 @onready var plantas = $Plantas
-
+#celdas
 const TAMANO_CELDA := Vector2(82, 94.5)
 const ORIGEN_TABLERO := Vector2(347, 144)
 
