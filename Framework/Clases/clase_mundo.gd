@@ -109,10 +109,37 @@ func terminar_partida(texto : String, texto_boton : String, accion : Callable):
 	get_tree().paused = true
 
 func mostrar_mensaje(texto : String, texto_boton : String, accion : Callable):
-	# ... todo igual hasta llegar al boton ...
-	boton.pressed.connect(accion)        # <-- antes era boton.pressed.connect(reiniciar)
-	columna.add_child(boton)
+	var capa := CanvasLayer.new()
+	capa.process_mode = Node.PROCESS_MODE_ALWAYS   # sigue activo con el juego en pausa
+	add_child(capa)
 
+	var centro := CenterContainer.new()
+	capa.add_child(centro)
+	centro.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	var columna := VBoxContainer.new()
+	columna.add_theme_constant_override("separation", 30)
+	centro.add_child(columna)
+
+	var etiqueta := Label.new()
+	etiqueta.text = texto
+	etiqueta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if ResourceLoader.exists(RUTA_FUENTE):
+		etiqueta.add_theme_font_override("font", load(RUTA_FUENTE))
+	etiqueta.add_theme_font_size_override("font_size", 130)
+	etiqueta.add_theme_color_override("font_color", Color(0.96, 0.9, 0.72))
+	etiqueta.add_theme_color_override("font_outline_color", Color.BLACK)
+	etiqueta.add_theme_constant_override("outline_size", 14)
+	columna.add_child(etiqueta)
+
+	var boton := Button.new()
+	boton.text = texto_boton
+	boton.add_theme_font_size_override("font_size", 36)
+	boton.custom_minimum_size = Vector2(280, 70)
+	boton.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	boton.pressed.connect(accion)        # antes era boton.pressed.connect(reiniciar)
+	columna.add_child(boton)
+	
 func ir_a_siguiente_nivel():
 	get_tree().paused = false            # si no, el nivel nuevo nace en pausa
 	get_tree().change_scene_to_file(siguiente_nivel)
