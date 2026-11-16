@@ -11,13 +11,14 @@
 atlas = ExtResource("5_cih17")
 region = Rect2(0, 0, 158, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wu2rp"]
-margin = Rect2(0, 27, 158, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1hom"]
+atlas = ExtResource("5_cih17")
+region = Rect2(0, 27, 158, 24)
 
 [node name="Niv1" type="Node2D" unique_id=1416248889 node_paths=PackedStringArray("nodo_lineas")]
 script = ExtResource("1_g7wys")
-enemigos_por_oleada = Array[int]([5, 8, 12, 16, 20])
-tiempo_de_oleadas = Array[float]([35.0, 25.0, 25.0, 25.0, 30.0])
+enemigos_por_oleada = Array[int]([5, 8, 12, 16, 10])
+tiempo_de_oleadas = Array[float]([40.0, 30.0, 30.0, 35.0, 40.0])
 nodo_lineas = NodePath("Lineas")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1904071341]
@@ -44,9 +45,10 @@ offset_top = 31.0
 offset_right = 604.0
 offset_bottom = 58.0
 texture_under = SubResource("AtlasTexture_xna76")
-texture_progress = SubResource("AtlasTexture_wu2rp")
+texture_progress = SubResource("AtlasTexture_t1hom")
 
 [node name="EtiquetaOleada" type="Label" parent="CanvasLayer" unique_id=1996624877]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
