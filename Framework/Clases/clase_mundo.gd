@@ -155,9 +155,10 @@ func crear_barra_progreso():
 func actualizar_progreso():
 	if enemigos_totales <= 0:
 		return
-	var porcentaje : float = float(enemigos_abatidos) / float(enemigos_totales) * 100.0
-	barra_progreso.value = porcentaje
-	etiqueta_oleada.text = "Progreso: %d%%" % int(porcentaje)
+	var porcentaje : float = float(enemigos_abatidos) / float(enemigos_totales)   # de 0.0 a 1.0
+	# El verde empieza al 5% de la imagen, asi que arrancamos ahi para que se note desde el primer zombie
+	barra_progreso.value = lerp(5.0, 100.0, porcentaje)
+	etiqueta_oleada.text = "Progreso: %d%%" % int(porcentaje * 100.0)
 	
 func iniciar_lluvia_soles():
 	timer_lluvia = Timer.new()

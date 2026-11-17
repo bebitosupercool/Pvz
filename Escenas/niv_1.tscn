@@ -44,6 +44,7 @@ offset_left = 446.0
 offset_top = 31.0
 offset_right = 604.0
 offset_bottom = 58.0
+value = 50.0
 texture_under = SubResource("AtlasTexture_xna76")
 texture_progress = SubResource("AtlasTexture_g7wys")
 
