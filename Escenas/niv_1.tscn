@@ -17,6 +17,7 @@ region = Rect2(0, 27, 158, 24)
 
 [node name="Niv1" type="Node2D" unique_id=1416248889 node_paths=PackedStringArray("nodo_lineas")]
 script = ExtResource("1_t1hom")
+siguiente_nivel = "uid://bnbqyfr5vox06"
 enemigos_por_oleada = Array[int]([3, 5, 10, 12, 10])
 tiempo_de_oleadas = Array[float]([40.0, 30.0, 30.0, 35.0, 40.0])
 nodo_lineas = NodePath("Lineas")
