@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8cgkmnctt3m2" path="res://Framework/MenuScripts/escenas.gd" id="1_no3o5"]
 [ext_resource type="Texture2D" uid="uid://crevlffkc2k2x" path="res://assets/menu.png" id="2_70aba"]
+[ext_resource type="AudioStream" uid="uid://bknif3nxfdi5x" path="res://assets/musica/MusicaMenu.mp3" id="3_70aba"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1il4"]
 
@@ -55,6 +56,11 @@ offset_bottom = 528.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_l11pj")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_h82as")
 theme_override_styles/hover = SubResource("StyleBoxFlat_no3o5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=668165455]
+stream = ExtResource("3_70aba")
+volume_db = -10.06
+autoplay = true
 
 [connection signal="pressed" from="options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
