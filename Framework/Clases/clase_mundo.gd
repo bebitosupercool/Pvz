@@ -1,6 +1,13 @@
 class_name Mundo
 extends Node2D
 
+#Boton de pausa.
+const MENU_OPCIONES = preload("res://Escenas/menu_opciones.tscn")
+const ICONO_PAUSA = preload("res://assets/Boton_de_pausa.png")
+const MENU_PRINCIPAL := "res://Escenas/Escenas.tscn"
+
+var capa_pausa : CanvasLayer
+
 # Ruta del nivel que sigue. Si esta vacia, es el ultimo nivel.
 @export_file("*.tscn") var siguiente_nivel : String = ""
 
@@ -56,6 +63,8 @@ func inicializar_mundo():
 		enemigos_totales += enemigos
 	crear_barra_progreso()   
 	iniciar_lluvia_soles()
+	crear_boton_pausa()
+		
 func inicializar_oleada():
 	#Checar si hay nueva oleada
 	if oleada_actual >= cantidad_de_oleadas:
@@ -96,8 +105,12 @@ func ganar():
 	if siguiente_nivel != "":
 		terminar_partida("¡Ganaste!", "Siguiente nivel", ir_a_siguiente_nivel)
 	else:
-		terminar_partida("¡Felicidades!", "Jugar de nuevo", reiniciar)
+		terminar_partida("¡Felicidades!", "Volver al menú", ir_al_menu)
 
+func ir_al_menu():
+	get_tree().paused = false            # si no, el menu carga congelado
+	get_tree().change_scene_to_file(MENU_PRINCIPAL)
+	
 func perder():
 	terminar_partida("¡Perdiste!", "Reintentar", reiniciar)
 
@@ -162,18 +175,16 @@ func actualizar_progreso():
 	
 func iniciar_lluvia_soles():
 	timer_lluvia = Timer.new()
-	timer_lluvia.one_shot = true              # se dispara una vez y lo reprogramamos nosotros
-	add_child(timer_lluvia)                   # un Timer.new() debe agregarse al arbol para contar
+	timer_lluvia.one_shot = true             
+	add_child(timer_lluvia)                  
 	timer_lluvia.timeout.connect(_caer_sol)
-	timer_lluvia.start(5.0)                   # el primero llega pronto, para que no se sienta vacio
+	timer_lluvia.start(5.0)                 
 
 func _caer_sol():
 	var sol : Sol = SOL_ESCENA.instantiate()
 	sol.cae_del_cielo = true
 	sol.cantidad_soles = lluvia_valor
 
-	# El dibujo del sol esta desplazado del origen del nodo (257,140 en la escena),
-	# asi que calculamos ese desfase para que el dibujo caiga donde queremos.
 	var desfase : Vector2 = sol.get_node("AnimatedSprite2D").position * sol.scale
 
 	var x_visible := randf_range(LLUVIA_X_MIN, LLUVIA_X_MAX)
@@ -182,7 +193,51 @@ func _caer_sol():
 	sol.position = Vector2(x_visible, LLUVIA_Y_INICIO) - desfase
 	sol.destino_y = y_visible - desfase.y
 
-	add_child(sol)   # todo esta configurado ANTES, porque _ready() corre aqui
+	add_child(sol)  
 
 	# reprogramar el siguiente con tiempo aleatorio
 	timer_lluvia.start(randf_range(lluvia_tiempo_min, lluvia_tiempo_max))
+
+#Creacion del boton pausa
+func crear_boton_pausa():
+	var boton := TextureButton.new()
+	boton.texture_normal = ICONO_PAUSA
+	boton.ignore_texture_size = true
+	boton.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+	boton.focus_mode = Control.FOCUS_NONE    
+
+	# Anclado a la esquina superior derecha: se queda ahi aunque cambie la resolucion
+	boton.anchor_left = 1.0
+	boton.anchor_right = 1.0
+	boton.anchor_top = 0.0
+	boton.anchor_bottom = 0.0
+	boton.offset_left = -72    
+	boton.offset_right = -20
+	boton.offset_top = 15
+	boton.offset_bottom = 63   
+
+	boton.pressed.connect(pausar)
+	$CanvasLayer.add_child(boton)
+
+func pausar():
+	# No abrir si ya termino la partida o si el menu ya esta abierto
+	if juego_terminado or capa_pausa != null:
+		return
+	capa_pausa = CanvasLayer.new()
+	capa_pausa.layer = 100
+	capa_pausa.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(capa_pausa)
+
+	var menu := MENU_OPCIONES.instantiate()
+	capa_pausa.add_child(menu)
+	menu.tree_exited.connect(reanudar)
+
+	get_tree().paused = true
+
+func reanudar():
+	if not is_inside_tree():     
+		return
+	get_tree().paused = false
+	if capa_pausa != null:
+		capa_pausa.queue_free()
+		capa_pausa = null
