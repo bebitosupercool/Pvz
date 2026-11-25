@@ -11,9 +11,13 @@ var panel_planta_actual : PanelPlanta
 var posicion_actual : Vector2i
 var celda_actual: CeldaPlanta
 
+var pala_activa := false
+
 func planta_seleccionada(panel_planta : PanelPlanta):
+	
 	if panel_planta.en_recuperacion or Global.soles < panel_planta.precio_soles:
 		return
+	pala_activa = false 
 	#Actualizar la variable
 	panel_planta_actual = panel_planta
 	
@@ -25,6 +29,7 @@ func planta_seleccionada(panel_planta : PanelPlanta):
 	hud.activar_boton_cancelar(true)
 
 func cancelar_seleccion():
+	pala_activa = false 
 	mostrar_cursor_planta = false
 	panel_planta_actual = null
 	if cursor_planta != null:
@@ -41,12 +46,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		cancelar_seleccion()
 
 func actualizar_celda_actual(pos : Vector2i, celda : CeldaPlanta):
-	cursor_planta.establecer_celda_valida(not plantas_colocadas.has(pos))
+	# Con la pala, la celda es "valida" (se ve normal) si HAY una planta; si no, se ve en rojo
+	var valida := plantas_colocadas.has(pos) if pala_activa else not plantas_colocadas.has(pos)
+	cursor_planta.establecer_celda_valida(valida)
 	posicion_actual = pos
 	celda_actual = celda
 
 func intentar_colocar_planta():
-	
+	if pala_activa:                        
+		quitar_planta()
+		return
 	if panel_planta_actual and not plantas_colocadas.has(posicion_actual):
 		
 		#Crear instancia de la planta a colocar 
@@ -80,7 +89,7 @@ func intentar_colocar_planta():
 		hud.activar_boton_cancelar(false)
 		
 func cancelar_planta():
-	
+	pala_activa = false 
 	#restablecer las variables
 	panel_planta_actual = null
 	celda_actual = null 
@@ -90,6 +99,7 @@ func cancelar_planta():
 	hud.activar_boton_cancelar(false)
 	
 func reiniciar_estado():
+	pala_activa = false 
 	plantas_colocadas.clear()
 	panel_planta_actual = null
 	celda_actual = null
@@ -98,3 +108,25 @@ func reiniciar_estado():
 	
 func _on_planta_muerta(celda : Vector2i):
 	plantas_colocadas.erase(celda)
+
+func pala_seleccionada(textura : Texture2D):
+	# Si ya tenia la pala en mano, pulsar otra vez la suelta (como un interruptor)
+	if pala_activa:
+		cancelar_planta()
+		return
+	panel_planta_actual = null             
+	pala_activa = true
+	mostrar_cursor_planta = true          
+	cursor_planta.mostrar_textura(textura)
+	cursor_planta.visible = true
+	mundo_actual.mostrar_celdas(true)
+	hud.activar_boton_cancelar(true)
+
+func quitar_planta():
+	if not plantas_colocadas.has(posicion_actual):
+		return                          
+	var planta : PlantaBase = plantas_colocadas[posicion_actual]
+	if is_instance_valid(planta):
+		planta.retirar()
+	plantas_colocadas.erase(posicion_actual)
+	cancelar_planta()                      

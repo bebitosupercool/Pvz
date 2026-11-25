@@ -13,10 +13,12 @@ func actualizar_visuales(panel_planta : PanelPlanta):
 	if panel_planta == null:
 		sprite.texture = null
 		return
-	if panel_planta.textura == null:
+	mostrar_textura(panel_planta.textura)
+
+func mostrar_textura(textura : Texture2D):
+	if textura == null:
 		return
-	sprite.texture = panel_planta.textura
-	# factor = ancho que quiero / ancho real de la imagen
+	sprite.texture = textura
 	var factor : float = ancho_cursor / sprite.texture.get_width()
 	sprite.scale = Vector2(factor, factor)
 

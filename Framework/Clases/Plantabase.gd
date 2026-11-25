@@ -26,3 +26,7 @@ func recibir_ataque(cantidad : float):
 		return
 	if animacion_impacto != null:
 		animacion_impacto.play("impacto")
+		
+func retirar():
+	planta_muerta.emit(celdaocup)    
+	queue_free()
