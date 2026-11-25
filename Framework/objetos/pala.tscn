@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dewm5u7ksj3vk"]
+
+[ext_resource type="Texture2D" uid="uid://c43c6a5g6cag" path="res://assets/pala.png" id="1_720if"]
+[ext_resource type="Script" uid="uid://og8vdwywbmy1" path="res://Framework/UI/panel_pala.gd" id="1_xaqek"]
+
+[node name="Pala" type="Panel" unique_id=2141608527]
+offset_right = 512.0
+offset_bottom = 512.0
+script = ExtResource("1_xaqek")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2129109710]
+custom_minimum_size = Vector2(66, 66)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_720if")
+expand_mode = 1

@@ -15,10 +15,11 @@ func actualizar_visuales(panel_planta : PanelPlanta):
 		return
 	mostrar_textura(panel_planta.textura)
 
-func mostrar_textura(textura : Texture2D):
+func mostrar_textura(textura : Texture2D, desfase : Vector2 = Vector2.ZERO):
 	if textura == null:
 		return
 	sprite.texture = textura
+	sprite.offset = desfase          # mueve la imagen respecto al punto del mouse, en pixeles de la textura
 	var factor : float = ancho_cursor / sprite.texture.get_width()
 	sprite.scale = Vector2(factor, factor)
 

@@ -41,9 +41,8 @@ func _process(_delta: float) -> void:
 		cursor_planta.global_position = cursor_planta.get_global_mouse_position()
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Como en el original: clic derecho cancela la selección
 	if mostrar_cursor_planta and event.is_action_pressed("click_derecho"):
-		cancelar_seleccion()
+		cancelar_planta() 
 
 func actualizar_celda_actual(pos : Vector2i, celda : CeldaPlanta):
 	# Con la pala, la celda es "valida" (se ve normal) si HAY una planta; si no, se ve en rojo

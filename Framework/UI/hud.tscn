@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bw1wq0vngg5m7" path="res://Framework/objetos/Plantas/girasol.tscn" id="7_vuqag"]
 [ext_resource type="Texture2D" uid="uid://cbmm5xpv00fdl" path="res://assets/icono_biznaga_pergamino.png" id="8_vuqag"]
 [ext_resource type="PackedScene" uid="uid://dqs6yss8mu1ar" path="res://Framework/objetos/Plantas/Biznaga.tscn" id="9_fmxl4"]
+[ext_resource type="PackedScene" uid="uid://dewm5u7ksj3vk" path="res://Framework/objetos/pala.tscn" id="10_xyyku"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4inuc"]
 bg_color = Color(0, 0, 0, 0.2901961)
@@ -129,5 +130,20 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_wu2rp")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_wu2rp")
 theme_override_styles/focus = SubResource("StyleBoxFlat_wu2rp")
 text = "X"
+
+[node name="MarcoPala" type="Panel" parent="." unique_id=1328746186]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 463.0
+offset_right = 1132.0
+offset_bottom = 529.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarcoPala" unique_id=3276651]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pala" parent="MarcoPala/VBoxContainer" unique_id=495606905 instance=ExtResource("10_xyyku")]
+layout_mode = 2
 
 [connection signal="button_down" from="B_Cancel" to="." method="_on_b_cancel_button_down"]
