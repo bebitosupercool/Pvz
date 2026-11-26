@@ -5,6 +5,9 @@ extends Node2D
 const MENU_OPCIONES = preload("res://Escenas/menu_opciones.tscn")
 const ICONO_PAUSA = preload("res://assets/Boton_de_pausa.png")
 const MENU_PRINCIPAL := "res://Escenas/Escenas.tscn"
+# Menu de derrota precargado. Niv1 y Niv2 usan niv_1.gd (que hereda de Mundo),
+# asi que los dos niveles lo tienen listo desde que cargan.
+const MENU_PERDER = preload("res://Escenas/menu_perder.tscn")
 
 var capa_pausa : CanvasLayer
 
@@ -112,7 +115,18 @@ func ir_al_menu():
 	get_tree().change_scene_to_file(MENU_PRINCIPAL)
 	
 func perder():
-	terminar_partida("¡Perdiste!", "Reintentar", reiniciar)
+	if juego_terminado:
+		return
+	juego_terminado = true
+
+	# Capa propia para que el menu quede encima del HUD y siga funcionando en pausa
+	var capa := CanvasLayer.new()
+	capa.layer = 100
+	capa.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(capa)
+	capa.add_child(MENU_PERDER.instantiate())
+
+	get_tree().paused = true
 
 func terminar_partida(texto : String, texto_boton : String, accion : Callable):
 	if juego_terminado:
