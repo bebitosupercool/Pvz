@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dtrk1xsoiyass"]
+
+[ext_resource type="Script" uid="uid://boa0sxifi4lq0" path="res://Framework/MenuScripts/menu_perder.gd" id="1_v7c0u"]
+[ext_resource type="Texture2D" uid="uid://bcqmvipuqnos2" path="res://assets/menuderrota.png" id="2_2w0g8"]
+
+[node name="MenuPerder" type="Control" unique_id=445113388]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7c0u")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=154416771]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_2w0g8")
+expand_mode = 1
+
+[node name="Button2" type="Button" parent="." unique_id=1979386129]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 574.0
+offset_right = 885.0
+offset_bottom = 628.0
+
+[node name="Button" type="Button" parent="." unique_id=1680304451]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 575.0
+offset_right = 568.0
+offset_bottom = 629.0
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
